@@ -17,9 +17,15 @@ namespace DebtBook.Model
         {
             this.debtors.Add(new Debtor(name));
         }
-        public void addDebtor(String name, double initial)
+        public List<IDebtor> getDebtors()
         {
-            this.debtors.Add(new Debtor(name, initial));
+            return this.debtors;
+        }
+        public IDebtor getDebtor(string debtorName)
+        {
+            //TODO search array for debtor, return that debtor
+            //Needed for list view in window
+            return this.debtors[0];
         }
     }
 }

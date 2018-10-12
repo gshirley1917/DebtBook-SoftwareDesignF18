@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace DebtBook.Model
 {
-    interface IDebtor
+    interface IDebt
     {
-        void addDebt(double amount, DateTime date);
-        List<IDebt> getDebts();
-        double getTotal();
+        double getAmount();
+        DateTime getDate();
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DebtBook.Model
 {
-    class Debt
+    class Debt : IDebt
     {
         private double amount;
         private DateTime date;
@@ -15,5 +15,14 @@ namespace DebtBook.Model
             this.amount = debt;
             this.date = date;
         }
+        public double getAmount()
+        {
+            return this.amount;
+        }
+        public DateTime getDate()
+        {
+            return this.date;
+        }
+
     }
 }
