@@ -11,9 +11,8 @@ namespace DebtBook.Model
         public String name;
         private List<IDebt> debts;
 
-        public Debtor(String n)
+        public Debtor()
         {
-            this.name = n;
             this.debts = new List<IDebt>();
         }
         public void addDebt(double debt, DateTime date)
