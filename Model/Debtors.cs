@@ -23,9 +23,13 @@ namespace DebtBook.Model
         }
         public IDebtor getDebtor(string debtorName)
         {
-            //TODO search array for debtor, return that debtor
-            //Needed for list view in window
-            return this.debtors[0];
+            //search array for debtor
+            foreach (Debtor d in debtors)
+            {
+                if (debtorName.Equals(d.getName()))
+                    return d;
+            }
+            return null;
         }
     }
 }

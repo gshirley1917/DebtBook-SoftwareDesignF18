@@ -8,11 +8,16 @@ namespace DebtBook.Model
 {
     class Debtor : IDebtor
     {
-        public String name;
+        public String name; //TODO shouldn't be private?
         private List<IDebt> debts;
-
         public Debtor()
         {
+            this.name = null;
+            this.debts = new List<IDebt>();
+        }
+        public Debtor(String name)
+        {
+            this.name = name;
             this.debts = new List<IDebt>();
         }
         public void addDebt(double debt, DateTime date)
@@ -31,6 +36,10 @@ namespace DebtBook.Model
                 total += d.getAmount();
             }
             return total;
+        }
+        public string getName()
+        {
+            return this.name;
         }
     }
 }

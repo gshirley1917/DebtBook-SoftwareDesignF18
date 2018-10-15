@@ -8,8 +8,8 @@ namespace DebtBook.Model
 {
     interface IDebtors
     {
-        void addDebtor(string n);
+        void addDebtor(string name);
         List<IDebtor> getDebtors();
-        IDebtor getDebtor(string n);
+        IDebtor getDebtor(string name);
     }
 }

@@ -11,15 +11,15 @@
             <viewModel:MainWindowViewModel/>
         </Window.DataContext>
     <Grid>
-        <ListView HorizontalAlignment="Left" Height="100" Margin="38,126,0,0" VerticalAlignment="Top" Width="100">
+        <ListView HorizontalAlignment="Left" Height="100" Margin="182,130,0,0" VerticalAlignment="Top" Width="400">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Add Debtor" HorizontalAlignment="Left" Margin="360,75,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label Content="Debtors" HorizontalAlignment="Left" Margin="208,75,0,0" VerticalAlignment="Top"/>
+        <Button Content="Add Debtor" HorizontalAlignment="Left" Margin="507,257,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Debtors" HorizontalAlignment="Left" Margin="182,75,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
