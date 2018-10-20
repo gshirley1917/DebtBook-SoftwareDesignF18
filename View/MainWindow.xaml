@@ -19,7 +19,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Add Debtor" HorizontalAlignment="Left" Margin="507,257,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Add Debtor"  Command="{Binding CreateDebtorCommand}"
+                HorizontalAlignment="Left" Margin="507,257,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="Debtors" HorizontalAlignment="Left" Margin="182,75,0,0" VerticalAlignment="Top"/>
 
     </Grid>

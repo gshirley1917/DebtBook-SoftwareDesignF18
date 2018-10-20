@@ -56,9 +56,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModel\AddDebtorViewModel.cs" />
+    <Compile Include="View\INavigationService.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\ViewDebtorViewModel.cs" />
     <Compile Include="View\Locator.cs" />
+    <Compile Include="View\NavigationService.cs" />
     <Compile Include="View\RelayCommand.cs" />
     <Compile Include="View\ViewDebtor.xaml.cs">
       <DependentUpon>ViewDebtor.xaml</DependentUpon>

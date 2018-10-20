@@ -63,6 +63,7 @@ namespace DebtBook.ViewModel
         {
             debtor.addDebt(initialDebt, DateTime.Now);
             _debtBook.addDebtor(debtor);
+            //TODO Close window
         }
     }
 }
