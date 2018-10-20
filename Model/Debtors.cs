@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +9,10 @@ namespace DebtBook.Model
 {
     class Debtors : IDebtors
     {
-        private List<IDebtor> debtors;
+        private ObservableCollection<IDebtor> debtors;
         public Debtors()
         {
-            this.debtors = new List<IDebtor>();
+            this.debtors = new ObservableCollection<IDebtor>();
         }
         public void addDebtor(String name) //not needed?
         {
@@ -23,11 +24,11 @@ namespace DebtBook.Model
             this.debtors.Add(d);
         }
 
-        public List<IDebtor> getDebtors()
+        public ObservableCollection<IDebtor> getDebtors()
         {
             return this.debtors;
         }
-        public IDebtor getDebtor(string debtorName)
+        public Debtor getDebtor(string debtorName)
         {
             //search array for debtor
             foreach (Debtor d in debtors)

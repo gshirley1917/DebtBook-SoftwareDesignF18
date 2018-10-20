@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,23 +9,24 @@ namespace DebtBook.Model
 {
     class Debtor : IDebtor
     {
-        public String name; //TODO shouldn't be private?
-        private List<IDebt> debts;
+        public String DebtorName { get; set;}
+        public Double TotalDebt { get { return getTotal(); } private set { } }
+        private ObservableCollection<IDebt> debts;
         public Debtor()
         {
-            this.name = null;
-            this.debts = new List<IDebt>();
+            this.DebtorName = null;
+            this.debts = new ObservableCollection<IDebt>();
         }
         public Debtor(String name)
         {
-            this.name = name;
-            this.debts = new List<IDebt>();
+            this.DebtorName = name;
+            this.debts = new ObservableCollection<IDebt>();
         }
         public void addDebt(double debt, DateTime date)
         {
             this.debts.Add(new Debt(debt, date));
         }
-        public List<IDebt> getDebts()
+        public ObservableCollection<IDebt> getDebts()
         {
             return this.debts;
         }
@@ -33,13 +35,13 @@ namespace DebtBook.Model
             double total = 0;
             foreach(Debt d in debts)
             {
-                total += d.getAmount();
+                total += d.Amount;
             }
             return total;
         }
         public string getName()
         {
-            return this.name;
+            return this.DebtorName;
         }
     }
 }

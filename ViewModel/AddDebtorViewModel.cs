@@ -13,7 +13,7 @@ namespace DebtBook.ViewModel
 {
     class AddDebtorViewModel : INotifyPropertyChanged
     {
-        private Debtors _debtBook;
+        private IDebtors _debtBook;
         public AddDebtorViewModel(Debtors debtBook)
         {
             _debtBook = debtBook;
@@ -28,12 +28,12 @@ namespace DebtBook.ViewModel
         private double initialDebt = 0;
         public string Name
         {
-            get => debtor.name;
+            get => debtor.DebtorName;
             set
             {
-                if(value != debtor.name)
+                if(value != debtor.DebtorName)
                 {
-                    debtor.name = value;
+                    debtor.DebtorName = value;
                     OnPropertyChanged();
                 }
             }
@@ -50,7 +50,6 @@ namespace DebtBook.ViewModel
                 }
             }
         }
-
         private ICommand _addDebtorCommand;
         public ICommand AddDebtorCommand
         {
@@ -60,12 +59,10 @@ namespace DebtBook.ViewModel
                     new RelayCommand(AddDebtor));
             }
         }
-
         private void AddDebtor()
         {
             debtor.addDebt(initialDebt, DateTime.Now);
             _debtBook.addDebtor(debtor);
         }
-
     }
 }

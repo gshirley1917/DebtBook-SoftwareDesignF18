@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using DebtBook.Model;
+using System.Collections.ObjectModel;
 
 namespace DebtBook.ViewModel
 {
-    //TODO 
     class MainWindowViewModel : INotifyPropertyChanged
     {
-        private Debtors _debtBook;
+        private IDebtors _debtBook;
         public MainWindowViewModel(Debtors debtBook)
         {
             _debtBook = debtBook;
+            _debtBook.addDebtor("Alicja");
+            _debtBook.addDebtor("Garrett");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -24,6 +26,13 @@ namespace DebtBook.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public ObservableCollection<IDebtor> DebtBook
+        {
+            get => _debtBook.getDebtors();
+        }
+
+
 
     }
 }

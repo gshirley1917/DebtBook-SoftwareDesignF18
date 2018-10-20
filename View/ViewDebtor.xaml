@@ -8,15 +8,22 @@
         Title="ViewDebtor" Height="412" Width="470">
     <Grid Margin="0,0,2,0">
         <Button Content="Add Debt" HorizontalAlignment="Left" Margin="256,308,0,0" VerticalAlignment="Top" Width="75"/>
-        <ListView HorizontalAlignment="Left" Height="100" Margin="126,138,0,0" VerticalAlignment="Top" Width="205">
+        <ListView ItemsSource="{Binding Debts}"
+            HorizontalAlignment="Left" Height="100" Margin="126,138,0,0" VerticalAlignment="Top" Width="205">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn 
+                        Width="100" Header="Amount"
+                        DisplayMemberBinding="{Binding Amount}" />
+                    <GridViewColumn 
+                        Width="100" Header="Date"
+                        DisplayMemberBinding="{Binding Date}" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <!-- TODO bind name of a debtor -->
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="126,88,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="126,88,0,0" TextWrapping="Wrap" 
+                  Text="{Binding SelectedDebtorName}" VerticalAlignment="Top" Width="120"/>
         <Button Content="Close" HorizontalAlignment="Left" Margin="126,308,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>

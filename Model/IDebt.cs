@@ -8,7 +8,8 @@ namespace DebtBook.Model
 {
     interface IDebt
     {
-        double getAmount();
+        /*double getAmount();
         DateTime getDate();
+        */
     }
 }

@@ -12,7 +12,7 @@ namespace DebtBook.View
     {
         Debtors debtBook = new Debtors();
         public AddDebtorViewModel AddDebtorVM => new AddDebtorViewModel(debtBook);
-        public ViewDebtorViewModel ViewDebtorVM => new ViewDebtorViewModel(debtBook);
+        public ViewDebtorViewModel ViewDebtorVM => new ViewDebtorViewModel(debtBook, "Alicja");
         public MainWindowViewModel MainWindowVM => new MainWindowViewModel(debtBook);
     }
 }

@@ -8,21 +8,21 @@ namespace DebtBook.Model
 {
     class Debt : IDebt
     {
-        private double amount;
-        private DateTime date;
+        public double Amount { get; private set; }
+        public DateTime Date { get; private set; }
         public Debt(double debt, DateTime date)
         {
-            this.amount = debt;
-            this.date = date;
+            this.Amount = debt;
+            this.Date = date;
         }
-        public double getAmount()
+        /*public double getAmount()
         {
-            return this.amount;
+            return this.Amount;
         }
         public DateTime getDate()
         {
-            return this.date;
-        }
+            return this.Date;
+        }*/
 
     }
 }
