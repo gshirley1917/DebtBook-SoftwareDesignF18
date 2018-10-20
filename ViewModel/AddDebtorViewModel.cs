@@ -8,11 +8,24 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
+
 namespace DebtBook.ViewModel
 {
-    class AddDebtorViewModel
+    class AddDebtorViewModel : INotifyPropertyChanged
     {
+        private Debtors _debtBook;
+        public AddDebtorViewModel(Debtors debtBook)
+        {
+            _debtBook = debtBook;
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         Debtor debtor = new Debtor();
+        private double initialDebt = 0;
         public string Name
         {
             get => debtor.name;
@@ -21,10 +34,38 @@ namespace DebtBook.ViewModel
                 if(value != debtor.name)
                 {
                     debtor.name = value;
-                    //OnPropertyChanged();
+                    OnPropertyChanged();
                 }
             }
         }
-        public double InitialDebt;
+        public double InitialDebt
+        {
+            get{ return initialDebt; }
+            set
+            {
+                if (value != initialDebt)
+                {
+                    initialDebt = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private ICommand _addDebtorCommand;
+        public ICommand AddDebtorCommand
+        {
+            get
+            {
+                return _addDebtorCommand ?? (_addDebtorCommand =
+                    new RelayCommand(AddDebtor));
+            }
+        }
+
+        private void AddDebtor()
+        {
+            debtor.addDebt(initialDebt, DateTime.Now);
+            _debtBook.addDebtor(debtor);
+        }
+
     }
 }

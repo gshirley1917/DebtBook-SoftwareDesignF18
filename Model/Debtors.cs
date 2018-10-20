@@ -13,10 +13,16 @@ namespace DebtBook.Model
         {
             this.debtors = new List<IDebtor>();
         }
-        public void addDebtor(String name)
+        public void addDebtor(String name) //not needed?
         {
             this.debtors.Add(new Debtor(name));
         }
+
+        public void addDebtor(Debtor d)
+        {
+            this.debtors.Add(d);
+        }
+
         public List<IDebtor> getDebtors()
         {
             return this.debtors;
