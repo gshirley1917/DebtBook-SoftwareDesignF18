@@ -38,6 +38,7 @@ namespace DebtBook.ViewModel
         private void AddDebt()
         {
             _selectedDebtor.addDebt(Amount, DebtDate);
+            OnPropertyChanged();
         }
     }
 }

@@ -6,33 +6,35 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         DataContext="{Binding Source={StaticResource Locator}, Path=ViewDebtorVM}"
         mc:Ignorable="d"
-        Title="ViewDebtor" Height="412" Width="470">
+        Title="ViewDebtor" Height="361" Width="555">
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Close"
                         Executed="CloseCommandHandler"/>
     </Window.CommandBindings>
     <Grid Margin="0,0,2,0">
-        <Button Content="Add Debt" Command="{Binding AddDebtCommand}" 
-                HorizontalAlignment="Left" Margin="256,308,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="ADD" Command="{Binding AddDebtCommand}" 
+                HorizontalAlignment="Left" Margin="401,205,0,0" VerticalAlignment="Top" Width="52"/>
         <ListView ItemsSource="{Binding Debts}"
-            HorizontalAlignment="Left" Height="100" Margin="126,138,0,0" VerticalAlignment="Top" Width="205">
+            HorizontalAlignment="Left" Height="100" Margin="126,71,0,0" VerticalAlignment="Top" Width="305">
             <ListView.View>
                 <GridView>
                     <GridViewColumn 
-                        Width="100" Header="Amount"
+                        Width="150" Header="Amount"
                         DisplayMemberBinding="{Binding Amount}" />
                     <GridViewColumn 
-                        Width="100" Header="Date"
+                        Width="150" Header="Date"
                         DisplayMemberBinding="{Binding Date}" />
                 </GridView>
             </ListView.View>
         </ListView>
-        
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="126,29,0,0" TextWrapping="Wrap" 
-                  Text="{Binding SelectedDebtorName, Mode=OneWay}"   VerticalAlignment="Top" Width="120"/>
-        <Button Content="Close" Command="ApplicationCommands.Close" HorizontalAlignment="Left" Margin="126,308,0,0" VerticalAlignment="Top" Width="75"/>
-        <DatePicker SelectedDate="{Binding DebtDate}" HorizontalAlignment="Left" Margin="230,79,0,0" VerticalAlignment="Top"/>
-        <TextBox Text="{Binding Amount}" HorizontalAlignment="Left" Height="23" Margin="126,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+
+        <Label HorizontalAlignment="Left" Height="23" Margin="126,29,0,0" 
+               Content="{Binding SelectedDebtorName, Mode=OneWay}"   VerticalAlignment="Top" Width="120"/>
+        <Button Content="CLOSE" Command="ApplicationCommands.Close" HorizontalAlignment="Left" Margin="242,276,0,0" VerticalAlignment="Top" Width="75"/>
+        <DatePicker SelectedDate="{Binding DebtDate}" HorizontalAlignment="Left" Margin="251,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.519,1.208"/>
+        <TextBox Text="{Binding Amount}" HorizontalAlignment="Left" Height="23" Margin="126,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Amount:" HorizontalAlignment="Left" Margin="68,200,0,0" VerticalAlignment="Top"/>
+        <Label Content="Date:" HorizontalAlignment="Left" Margin="209,200,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

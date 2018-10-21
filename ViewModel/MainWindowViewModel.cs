@@ -56,6 +56,7 @@ namespace DebtBook.ViewModel
         {
             ViewDebtorViewModel vm = new ViewDebtorViewModel(_debtBook, _debtBook.getDebtors()[CurrentIndex].getName(), _nav);
             _nav.Show(vm);
+            OnPropertyChanged();
         }
 
 
