@@ -16,7 +16,7 @@ namespace DebtBook.ViewModel
     {
         private Debtors _debtBook;
         private INavigationService _nav;
-        public MainWindowViewModel(Debtors debtBook, NavigationService n)
+        public MainWindowViewModel(Debtors debtBook, INavigationService n)
         {
             _debtBook = debtBook;
             _debtBook.addDebtor(new Debtor("Alicja"));
@@ -47,7 +47,7 @@ namespace DebtBook.ViewModel
         private void CreateDebtor()
         {
             //navigate to new window
-            AddDebtorViewModel vm = new AddDebtorViewModel(_debtBook);
+            AddDebtorViewModel vm = new AddDebtorViewModel(_debtBook, _nav);
             _nav.Show("AddDebtor");
         }
 

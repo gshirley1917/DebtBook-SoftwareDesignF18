@@ -9,5 +9,6 @@ namespace DebtBook.View
     interface INavigationService
     {
         void Show(String viewName);
+        void Close();
     }
 }

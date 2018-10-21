@@ -10,15 +10,21 @@ namespace DebtBook.View
     class NavigationService : INavigationService
     {
         //TODO close windows
+        Window currentWindow;
         public void Show(String viewName)
         {
             switch (viewName)
             {
                 case "AddDebtor":
-                    Window w = new AddDebtor();
-                    w.ShowDialog();
+                    currentWindow = new AddDebtor();
+                    currentWindow.ShowDialog();
                     break;
             }
+        }
+
+        public void Close()
+        {
+            currentWindow.Close();
         }
     }
 }
