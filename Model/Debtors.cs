@@ -18,7 +18,10 @@ namespace DebtBook.Model
         {
             this.debtors.Add(d);
         }
-
+        public void deleteDebtor(Debtor d)
+        {
+            this.debtors.Remove(d);
+        }
         public ObservableCollection<IDebtor> getDebtors()
         {
             return this.debtors;

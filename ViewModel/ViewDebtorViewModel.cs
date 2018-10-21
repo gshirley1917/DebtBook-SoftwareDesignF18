@@ -50,8 +50,9 @@ namespace DebtBook.ViewModel
         }
         private void AddDebt()
         {
+            _debtBook.deleteDebtor(_selectedDebtor);
             _selectedDebtor.addDebt(Amount, _debtDate);
-            OnPropertyChanged();
+            _debtBook.addDebtor(_selectedDebtor);
         }
     }
 }
