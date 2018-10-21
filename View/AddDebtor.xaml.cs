@@ -23,10 +23,5 @@ namespace DebtBook.View
         {
             InitializeComponent();
         }
-        //From stackoverflow
-        private void CloseCommandHandler(object sender, ExecutedRoutedEventArgs e)
-        {
-            this.Close();
-        }
     }
 }

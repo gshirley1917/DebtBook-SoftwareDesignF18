@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-
+using DebtBook.View;
 
 namespace DebtBook.ViewModel
 {
     class AddDebtorViewModel : INotifyPropertyChanged
     {
         private IDebtors _debtBook;
-        public AddDebtorViewModel(Debtors debtBook)
+        private INavigationService _nav;
+        public AddDebtorViewModel(Debtors debtBook, INavigationService n)
         {
             _debtBook = debtBook;
+            _nav = n;
         }
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -63,7 +65,22 @@ namespace DebtBook.ViewModel
         {
             debtor.addDebt(initialDebt, DateTime.Now);
             _debtBook.addDebtor(debtor);
-            //TODO Close window
+            _nav.Close();
+        }
+
+        private ICommand _cancelCommand;
+        public ICommand CancelCommand
+        {
+            get
+            {
+                return _cancelCommand ?? (_cancelCommand =
+                    new RelayCommand(Cancel));
+            }
+        }
+
+        private void Cancel()
+        {
+            _nav.Close();
         }
     }
 }

@@ -12,8 +12,8 @@ namespace DebtBook.View
     {
         Debtors debtBook = new Debtors();
         NavigationService nav = new NavigationService();
-        public AddDebtorViewModel AddDebtorVM => new AddDebtorViewModel(debtBook);
-        public ViewDebtorViewModel ViewDebtorVM => new ViewDebtorViewModel(debtBook, "Alicja");
+        public AddDebtorViewModel AddDebtorVM => new AddDebtorViewModel(debtBook, nav);
+        public ViewDebtorViewModel ViewDebtorVM => new ViewDebtorViewModel(debtBook, "Alicja", nav);
         public MainWindowViewModel MainWindowVM => new MainWindowViewModel(debtBook, nav);
     }
 }

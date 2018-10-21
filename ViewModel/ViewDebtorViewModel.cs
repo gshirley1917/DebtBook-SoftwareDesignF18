@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using DebtBook.Model;
+using DebtBook.View;
 
 namespace DebtBook.ViewModel
 {
@@ -16,12 +17,12 @@ namespace DebtBook.ViewModel
     {
         private Debtors _debtBook;
         private Debtor _selectedDebtor;
-        private string _debtorName;
-        public ViewDebtorViewModel(Debtors debtBook, String debtorName)
+        private INavigationService _nav;
+        public ViewDebtorViewModel(Debtors debtBook, String debtorName, INavigationService n)
         {
             _debtBook = debtBook;
             _selectedDebtor = _debtBook.getDebtor(debtorName);
-            _debtorName = debtorName;
+            _nav = n;
         }
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
