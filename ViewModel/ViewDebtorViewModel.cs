@@ -46,7 +46,7 @@ namespace DebtBook.ViewModel
         }
         private void AddDebt()
         {
-            _debtBook.getDebtor(_debtorName).addDebt(Amount, DebtDate);
+            _selectedDebtor.addDebt(Amount, DebtDate);
         }
     }
 }

@@ -62,7 +62,7 @@ namespace DebtBook.ViewModel
         public int CurrentIndex { get; set; }
         private void ViewDebtor()
         {
-            ViewDebtorViewModel vm = new ViewDebtorViewModel(_debtBook, _debtBook.getDebtors()[CurrentIndex].getName());
+            ViewDebtorViewModel vm = new ViewDebtorViewModel(_debtBook, _debtBook.getDebtors()[CurrentIndex].getName(), _nav);
             _nav.Show("ViewDebtor");
         }
 
