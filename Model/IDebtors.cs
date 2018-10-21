@@ -9,7 +9,6 @@ namespace DebtBook.Model
 {
     interface IDebtors
     {
-        void addDebtor(String name);
         void addDebtor(Debtor d);
         ObservableCollection<IDebtor> getDebtors();
         Debtor getDebtor(String name);

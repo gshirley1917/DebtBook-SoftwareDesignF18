@@ -11,6 +11,7 @@ namespace DebtBook.Model
     {
         void addDebt(double amount, DateTime date);
         ObservableCollection<IDebt> getDebts();
+        string getName();
         double getTotal();
     }
 }
