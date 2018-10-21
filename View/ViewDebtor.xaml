@@ -3,11 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         DataContext="{Binding Source={StaticResource Locator}, Path=ViewDebtorVM}"
         mc:Ignorable="d"
         Title="ViewDebtor" Height="412" Width="470">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Close"
+                        Executed="CloseCommandHandler"/>
+    </Window.CommandBindings>
     <Grid Margin="0,0,2,0">
-        <Button Content="Add Debt" HorizontalAlignment="Left" Margin="256,308,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Add Debt" Command="{Binding AddDebtCommand}" 
+                HorizontalAlignment="Left" Margin="256,308,0,0" VerticalAlignment="Top" Width="75"/>
         <ListView ItemsSource="{Binding Debts}"
             HorizontalAlignment="Left" Height="100" Margin="126,138,0,0" VerticalAlignment="Top" Width="205">
             <ListView.View>
@@ -22,9 +28,11 @@
             </ListView.View>
         </ListView>
         
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="126,88,0,0" TextWrapping="Wrap" 
-                  Text="{Binding SelectedDebtorName}" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Close" HorizontalAlignment="Left" Margin="126,308,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="126,29,0,0" TextWrapping="Wrap" 
+                  Text="{Binding SelectedDebtorName, Mode=OneWay}"   VerticalAlignment="Top" Width="120"/>
+        <Button Content="Close" Command="ApplicationCommands.Close" HorizontalAlignment="Left" Margin="126,308,0,0" VerticalAlignment="Top" Width="75"/>
+        <DatePicker SelectedDate="{Binding DebtDate}" HorizontalAlignment="Left" Margin="230,79,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding Amount}" HorizontalAlignment="Left" Height="23" Margin="126,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>

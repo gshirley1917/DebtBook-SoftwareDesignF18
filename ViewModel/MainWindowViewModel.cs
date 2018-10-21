@@ -50,7 +50,21 @@ namespace DebtBook.ViewModel
             AddDebtorViewModel vm = new AddDebtorViewModel(_debtBook);
             _nav.Show("AddDebtor");
         }
-
+        private ICommand _viewDebtorCommand;
+        public ICommand ViewDebtorCommand
+        {
+            get
+            {
+                return _viewDebtorCommand ?? (_viewDebtorCommand =
+                    new RelayCommand(ViewDebtor));
+            }
+        }
+        public int CurrentIndex { get; set; }
+        private void ViewDebtor()
+        {
+            ViewDebtorViewModel vm = new ViewDebtorViewModel(_debtBook, _debtBook.getDebtors()[CurrentIndex].getName());
+            _nav.Show("ViewDebtor");
+        }
 
 
     }

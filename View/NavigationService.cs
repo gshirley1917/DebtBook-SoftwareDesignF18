@@ -18,6 +18,10 @@ namespace DebtBook.View
                     Window w = new AddDebtor();
                     w.ShowDialog();
                     break;
+                case "ViewDebtor":
+                    Window view = new ViewDebtor();
+                    view.ShowDialog();
+                    break;
             }
         }
     }
