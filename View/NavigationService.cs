@@ -4,24 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using DebtBook.ViewModel;
 
 namespace DebtBook.View
 {
     class NavigationService : INavigationService
     {
-        //TODO close windows
         Window currentWindow;
-        public void Show(String viewName)
+        public void Show(BaseViewModel vm)
         {
-            switch (viewName)
+            switch (vm.GetType().Name)
             {
-                case "AddDebtor":
+                case "AddDebtorViewModel" :
                     currentWindow = new AddDebtor();
                     currentWindow.ShowDialog();
                     break;
-                case "ViewDebtor":
-                    Window view = new ViewDebtor();
-                    view.ShowDialog();
+                case "ViewDebtorViewModel":
+                    currentWindow = new ViewDebtor();
+                    currentWindow.DataContext = vm;
+                    currentWindow.ShowDialog();
                     break;
             }
         }

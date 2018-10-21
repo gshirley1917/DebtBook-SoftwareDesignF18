@@ -12,24 +12,15 @@ using DebtBook.View;
 
 namespace DebtBook.ViewModel
 {
-    //TODO
-    class ViewDebtorViewModel : INotifyPropertyChanged
+    class ViewDebtorViewModel : BaseViewModel
     {
-        private Debtors _debtBook;
         private Debtor _selectedDebtor;
-        private INavigationService _nav;
         public ViewDebtorViewModel(Debtors debtBook, String debtorName, INavigationService n)
         {
             _debtBook = debtBook;
             _selectedDebtor = _debtBook.getDebtor(debtorName);
             _nav = n;
         }
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         public String SelectedDebtorName => _selectedDebtor.DebtorName;
         public ObservableCollection<IDebt> Debts => _selectedDebtor.getDebts();
 

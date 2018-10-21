@@ -11,21 +11,13 @@ using DebtBook.View;
 
 namespace DebtBook.ViewModel
 {
-    class AddDebtorViewModel : INotifyPropertyChanged
+    class AddDebtorViewModel : BaseViewModel
     {
-        private IDebtors _debtBook;
-        private INavigationService _nav;
         public AddDebtorViewModel(Debtors debtBook, INavigationService n)
         {
             _debtBook = debtBook;
             _nav = n;
         }
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         Debtor debtor = new Debtor();
         private double initialDebt = 0;
         public string Name

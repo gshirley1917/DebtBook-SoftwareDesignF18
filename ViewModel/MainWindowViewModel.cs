@@ -12,22 +12,14 @@ using DebtBook.View;
 
 namespace DebtBook.ViewModel
 {
-    class MainWindowViewModel : INotifyPropertyChanged
+    class MainWindowViewModel : BaseViewModel
     {
-        private Debtors _debtBook;
-        private INavigationService _nav;
         public MainWindowViewModel(Debtors debtBook, INavigationService n)
         {
             _debtBook = debtBook;
             _debtBook.addDebtor(new Debtor("Alicja"));
             _debtBook.addDebtor(new Debtor("Garrett"));
             _nav = n;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public ObservableCollection<IDebtor> DebtBook
@@ -48,7 +40,7 @@ namespace DebtBook.ViewModel
         {
             //navigate to new window
             AddDebtorViewModel vm = new AddDebtorViewModel(_debtBook, _nav);
-            _nav.Show("AddDebtor");
+            _nav.Show(vm);
         }
         private ICommand _viewDebtorCommand;
         public ICommand ViewDebtorCommand
@@ -63,7 +55,7 @@ namespace DebtBook.ViewModel
         private void ViewDebtor()
         {
             ViewDebtorViewModel vm = new ViewDebtorViewModel(_debtBook, _debtBook.getDebtors()[CurrentIndex].getName(), _nav);
-            _nav.Show("ViewDebtor");
+            _nav.Show(vm);
         }
 
 
