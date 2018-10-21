@@ -24,7 +24,20 @@ namespace DebtBook.ViewModel
         public String SelectedDebtorName => _selectedDebtor.DebtorName;
         public ObservableCollection<IDebt> Debts => _selectedDebtor.getDebts();
 
-        public DateTime DebtDate { get; set; }
+        private DateTime _debtDate = DateTime.Now;
+        public DateTime DebtDate
+        {
+            get { return _debtDate; }
+            set
+            {
+                if (value != _debtDate)
+                {
+                    _debtDate = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public double Amount { get; set; }
         private ICommand _addDebtCommand;
         public ICommand AddDebtCommand
@@ -37,7 +50,7 @@ namespace DebtBook.ViewModel
         }
         private void AddDebt()
         {
-            _selectedDebtor.addDebt(Amount, DebtDate);
+            _selectedDebtor.addDebt(Amount, _debtDate);
             OnPropertyChanged();
         }
     }

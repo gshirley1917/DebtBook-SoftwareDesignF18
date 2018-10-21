@@ -23,12 +23,12 @@
                         DisplayMemberBinding="{Binding Amount}" />
                     <GridViewColumn 
                         Width="150" Header="Date"
-                        DisplayMemberBinding="{Binding Date}" />
+                        DisplayMemberBinding="{Binding Date, StringFormat=d}" />
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Label HorizontalAlignment="Left" Height="23" Margin="126,29,0,0" 
+        <Label HorizontalAlignment="Left" Height="37" Margin="126,29,0,0" 
                Content="{Binding SelectedDebtorName, Mode=OneWay}"   VerticalAlignment="Top" Width="120"/>
         <Button Content="CLOSE" Command="ApplicationCommands.Close" HorizontalAlignment="Left" Margin="242,276,0,0" VerticalAlignment="Top" Width="75"/>
         <DatePicker SelectedDate="{Binding DebtDate}" HorizontalAlignment="Left" Margin="251,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.519,1.208"/>
