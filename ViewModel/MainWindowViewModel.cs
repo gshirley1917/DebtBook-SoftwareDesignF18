@@ -19,8 +19,8 @@ namespace DebtBook.ViewModel
         public MainWindowViewModel(Debtors debtBook, NavigationService n)
         {
             _debtBook = debtBook;
-            _debtBook.addDebtor("Alicja");
-            _debtBook.addDebtor("Garrett");
+            _debtBook.addDebtor(new Debtor("Alicja"));
+            _debtBook.addDebtor(new Debtor("Garrett"));
             _nav = n;
         }
 
